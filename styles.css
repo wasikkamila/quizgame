@@ -12,16 +12,16 @@ button {
     margin-bottom:5%;
     background-color: pink;
     color: white;
-    border-radius:45px 25px;
+    border-radius: 45px 25px;
     padding-left: 3%;
     padding-right: 3%; 
-    padding-top:2%;
-    padding-bottom:2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
 
 }
 
 /* Animation to when you hover over the button */
-.button:hover {
+.button: hover {
    
   background-color: rgb(141, 85, 120);
   color: white;
@@ -83,3 +83,4 @@ button {
     font-size: 20px;
     row-gap: 20px;
 }
+
