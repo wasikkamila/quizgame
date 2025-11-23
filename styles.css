@@ -7,7 +7,7 @@ body {
 }
 h1 {
     text-align: center;
-    font-size: 50px;
+    font-size: 55px;
 }
 /* Styling for the button */
 button {
@@ -86,3 +86,4 @@ button {
     font-size: 20px;
     row-gap: 20px;
 }
+
