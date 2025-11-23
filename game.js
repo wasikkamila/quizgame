@@ -137,10 +137,11 @@ function checkAnswer(){
   let selected = null;
   radios2.forEach((radio, i) => { //check every radio button
     if (radio.checked) {
-      selected = radio.value;
+      selected = labels[i].textContent;
     }
   });
   if (selected === quiz[index].correct) {
   score++;
   }
 }
+
