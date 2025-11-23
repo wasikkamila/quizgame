@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Score</title>
     <meta name="viewport" content="width = device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Results</title>
 </head>
 <body>
     <div class="container">
         <h1>QUIZ GAME</h1>
-        <div class="content">
+        <div class="results">
             <div>Your score:</div>
-            <div>100000/100000</div>
+            <div><span id="score">0</span>/15</div>
             <div>Correct answers:</div>
         </div>
         <div class="answers">
@@ -20,10 +20,12 @@
             <div>question 3......</div>
             <div>question 4......</div>
         </div>
-        <button onclick="location.href='index.html'" class="button">Play again</button>
+        <!--Button to play again - when clicked, the score resets -->
+        <button onclick="localStorage.removeItem('quizScore'); location.href='index.html'" class="button">Play again</button>
     </div>
+    <script src="javascript/results.js"></script>
 </body>
-
 </html>
+
 
 
