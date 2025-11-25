@@ -118,18 +118,31 @@ function loadQuestion(i) {
 // Initial load
 loadQuestion(index);
 
-// Next button click
+// Next button click - Alex
 nextBtn.addEventListener('click', () => {
-  checkAnswer(); //check before moving on
+  const radios2 = document.querySelectorAll('input[name="q1"]');
+  let selected = false;
+
+  radios2.forEach(radio => {
+    if (radio.checked) selected = true;
+  });
+
+  if (!selected) {
+    alert("Please select an answer before continuing!");
+    return; // STOP — do not continue
+  }
+
+  checkAnswer(); // only runs if selected
   index++;
-  if (index >= quiz.length) 
-  {
-    localStorage.setItem("quizScore", score); //save score so it can be displayed later
-    window.location.href="score.html"; // goes to the score page after the last question
+
+  if (index >= quiz.length) {
+    localStorage.setItem("quizScore", score);
+    window.location.href = "score.html";
   } else {
-  loadQuestion(index);
+    loadQuestion(index);
   }
 });
+
 
 //Check answers - Kamila
 function checkAnswer(){
@@ -144,4 +157,5 @@ function checkAnswer(){
   score++;
   }
 }
+
 
