@@ -4,26 +4,32 @@
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width= device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>QUIZ GAME</title>
 
 </head>
 <body>
     <div class="container">
-    <h1>QUIZ GAME</h1>
-    <div class="QuestionNumber" id="question"><b> Question1</b></div> <!-- Questions go here -->
-    
+        <img class="button4" id="back" src="images/back.png"/>
+        <h1>QUIZ GAME</h1>
+    <div class="QuestionNumber" id="question">Question1</div> <!-- Questions go here -->
     <div class="game"> <!-- Possible answers for the questions -->
-        <div class="Ans1" id="answer1"><input type="radio" name="q1" ><label for="answer1" id="label1">  One</label></div>
-        <div class="Ans1" id="answer2"><input type="radio" name="q1" > <label for="answer2" id="label2">  Two</label></div>
+        <div class="Ans1" id="answer1"><input class="radio-style" type="radio" name="q1"><label class="label-style" for="answer1" id="label1">One</label></div>
+        <div class="Ans1" id="answer2"><input class="radio-style" type="radio" name="q1"><label class="label-style" for="answer2" id="label2">Two</label></div>
     </div>
     <div class="game">
-        <div class="Ans1" id="answer3"><input type="radio" name="q1" > <label for="answer3" id="label3">Three</label></div>
-        <div class="Ans1"id="answer4"><input type="radio" name="q1" > <label for="answer4" id="label4">  Four</label></div>
-    </div> 
-        <button class="button" id="next">Next</button>
+        <div class="Ans1" id="answer3"><input class="radio-style" type="radio" name="q1"><label class="label-style" for="answer3" id="label3">Three</label></div>
+        <div class="Ans1"id="answer4"><input class="radio-style" type="radio" name="q1"><label class="label-style" for="answer4" id="label4">Four</label></div>
     </div>
-    <script src="game.js"></script>
+        <div><img class="button1"id="next" src="images/next.png"/>
+        <img class="button3" id="skip" src="images/skip.png"/>
+    <div id="skipCount">Skips left: 3</div>
+    </div>
+    </div>
+    
+    <script src="javascript/game.js"></script>
+
 </body>
 </html>
 
+    
