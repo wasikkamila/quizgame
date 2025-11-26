@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width = device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Results</title>
 </head>
 <body>
@@ -12,21 +12,35 @@
         <div class="results">
             <div>Your score:</div>
             <div><span id="score">0</span>/15</div>
+            <!--Button to play again - when clicked, the score resets -->
+            <img class="button1" id="playAgain" src="images/playagain.png"/>
             <div>Correct answers:</div>
         </div>
         <div class="answers">
-            <div>question 1......</div>
-            <div>question 2......</div>
-            <div>question 3......</div>
-            <div>question 4......</div>
+            <ol class="list">
+            <li>"What is the largest desert in the world?" <div class="correct">Correct: Sahara</div></li>
+            <li>"Which planet is known as the Red Planet?"<div class="correct">Correct: Mars</div></li>
+            <li>"What is the fastest land animal?"<div class="correct">Correct: Cheetah</div></li>
+            <li>"Who wrote 'Romeo and Juliet'?"<div class="correct">Correct: William Shakespeare</div></li>
+            <li>"What is the smallest prime number?"<div class="correct">Correct: 2</div></li>
+            <li>"Which element has the chemical symbol 'O'?"<div class="correct">Correct: Oxygen</div></li>
+            <li>"What is the capital of Japan?"<div class="correct">Correct: Tokyo</div></li>
+            <li>"Which ocean is the largest?"<div class="correct">Correct: Pacific</div></li>
+            <li>"Who painted the Mona Lisa?"<div class="correct">Correct: Leonardo da Vinci</div></li>
+            <li>"What is the hardest natural substance on Earth?"<div class="correct">Correct: Diamond</div></li>
+            <li>"Which ocean is the largest?"<div class="correct">Correct: Japan</div></li>
+            <li>"Who painted the Mona Lisa?"<div class="correct">Correct: Avocado</div></li>
+            <li>"What is the hardest natural substance on Earth?"<div class="correct">Correct: Diamond</div></li>
+            <li>"Which country is known as the Land of the Rising Sun?"<div class="correct">Correct: Japan</div></li>
+            <li>"What is the main ingredient in guacamole?"<div class="correct">Correct: Avocado</div></li>
+            <li>"Which gas do plants absorb from the atmosphere?"<div class="correct">Correct: Carbon Dioxide</div></li>
+            <li>"What is the largest mammal in the world?"<div class="correct">Correct: Blue Whale</div></li>
+            <li>"What is the boiling point of water at sea level?"<div class="correct">Correct: 100°C</div></li>
+            </ol>
         </div>
-        <!--Button to play again - when clicked, the score resets -->
-        <button onclick="localStorage.removeItem('quizScore'); location.href='index.html'" class="button">Play again</button>
+      
+        <!--<button onclick="localStorage.removeItem('quizScore'); location.href='index.html'" class="button">Play again</button>-->
     </div>
-    <script src="results.js"></script>
+    <script src="javascript/results.js"></script>
 </body>
 </html>
-
-
-
-
