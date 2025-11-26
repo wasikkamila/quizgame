@@ -1,3 +1,8 @@
+function saveGame() {
+  localStorage.setItem("savedIndex", index);
+  localStorage.setItem("savedScore", score);
+  localStorage.setItem("savedSkips", skipsLeft);
+}
 const questionEl = document.getElementById('question');
 const labels = [
   document.getElementById('label1'),
@@ -12,6 +17,11 @@ const radios = [
   document.getElementById('answer4')
 ];
 const nextBtn = document.getElementById('next');
+const backBtn = document.getElementById('back');
+
+let savedIndex = localStorage.getItem("savedIndex");
+let savedScore = localStorage.getItem("savedScore");
+let savedSkips = localStorage.getItem("savedSkips");
 
 // Array of questions and answers
 const quiz = [
@@ -62,7 +72,7 @@ const quiz = [
   },
   {
     question: "What is the hardest natural substance on Earth?",
-    answers: ["Gold", "Iron", "Diamond", "Silver",],
+    answers: ["Gold", "Iron", "Diamond", "Silver"],
     correct: "Diamond"
   },
   {
@@ -118,7 +128,16 @@ function loadQuestion(i) {
 // Initial load
 loadQuestion(index);
 
-// Next button click - Alex
+//'next' button animations
+document.getElementById("next").addEventListener("mouseover", function() {
+    document.getElementById("next").src = "images/nextD.png";
+});
+
+document.getElementById("next").addEventListener("mouseout", function() {
+    document.getElementById("next").src = "images/next.png";
+});
+
+// Next button click
 nextBtn.addEventListener('click', () => {
   const radios2 = document.querySelectorAll('input[name="q1"]');
   let selected = false;
@@ -134,16 +153,36 @@ nextBtn.addEventListener('click', () => {
 
   checkAnswer(); // only runs if selected
   index++;
+  saveGame();
 
   if (index >= quiz.length) {
     localStorage.setItem("quizScore", score);
+    localStorage.removeItem("savedIndex");
+    localStorage.removeItem("savedScore");
+    localStorage.removeItem("skipsLeft");
     window.location.href = "score.html";
   } else {
     loadQuestion(index);
   }
 });
-
-
+let lastCorrect = false;
+// Back button click
+backBtn.addEventListener('click', () => {
+  lastCorrect= checkAnswer();
+  
+  if (index<=0){
+    window.location.href="index.html";
+    return;
+  }
+  index--;
+  if (lastCorrect)
+  {
+    score--;
+    localStorage.setItem("quizScore", score)
+  }
+  loadQuestion(index);
+  saveGame();
+});
 //Check answers - Kamila
 function checkAnswer(){
   const radios2 = document.querySelectorAll("input[name=q1]"); //get all radio buttons
@@ -155,7 +194,62 @@ function checkAnswer(){
   });
   if (selected === quiz[index].correct) {
   score++;
+  ok=true;
   }
 }
+
+//skip button animations
+document.getElementById("skip").addEventListener("mouseover", function(){
+  document.getElementById("skip").src = "images/skipD.png";
+});
+
+document.getElementById("skip").addEventListener("mouseout", function(){
+  document.getElementById("skip").src = "images/skip.png";
+});
+
+//Skip button functionality 
+
+let skipsLeft= 3;
+localStorage.setItem("skipsLeft" , skipsLeft);
+const skipBtn = document.getElementById("skip");
+const skipDisplay= document.getElementById("skipCount");
+skipBtn.addEventListener("click", () => {
+
+  // No skips left
+  if (skipsLeft <= 0) {
+    alert("No skips remaining!");
+    return;
+  }
+
+  // Move current question to the end of the quiz
+  const skipped = quiz.splice(index, 1)[0];
+  quiz.push(skipped);
+
+  // Reduce skip count
+  skipsLeft--;
+  localStorage.setItem("skipsLeft", skipsLeft);
+  skipsLeft= localStorage.getItem("skipsLeft");
+
+  // Update display
+  skipDisplay.textContent = "Skips left: " + skipsLeft;
+
+  // Safety wrap (if last was skipped)
+  if (index >= quiz.length) {
+    index = 0;
+  }
+
+  // Load next question
+  loadQuestion(index);
+  saveGame();
+});
+
+//'go back' button animations
+document.getElementById("back").addEventListener("mouseover", function(){
+  document.getElementById("back").src = "images/backD.png";
+});
+
+document.getElementById("back").addEventListener("mouseout", function(){
+  document.getElementById("back").src = "images/back.png";
+});
 
 
