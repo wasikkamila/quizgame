@@ -168,6 +168,16 @@ nextBtn.addEventListener('click', () => {
   }
 });
 let lastCorrect = false;
+
+//'go back' button animations
+document.getElementById("back").addEventListener("mouseover", function(){
+  document.getElementById("back").src = "images/backD.png";
+});
+
+document.getElementById("back").addEventListener("mouseout", function(){
+  document.getElementById("back").src = "images/back.png";
+});
+
 // Back button click
 backBtn.addEventListener('click', () => {
   lastCorrect= checkAnswer();
@@ -185,6 +195,7 @@ backBtn.addEventListener('click', () => {
   saveGame();
   loadQuestion(index);
 });
+
 //Check answers - Kamila
 function checkAnswer(){
   const radios2 = document.querySelectorAll("input[name=q1]"); //get all radio buttons
@@ -211,7 +222,6 @@ document.getElementById("skip").addEventListener("mouseout", function(){
 });
 
 //Skip button functionality 
-
 let skipsLeft;
 
 if (savedSkips !== null) {
@@ -253,13 +263,7 @@ skipBtn.addEventListener("click", () => {
   saveGame();
 });
 
-//'go back' button animations
-document.getElementById("back").addEventListener("mouseover", function(){
-  document.getElementById("back").src = "images/backD.png";
-});
 
-document.getElementById("back").addEventListener("mouseout", function(){
-  document.getElementById("back").src = "images/back.png";
-});
+
 
 
