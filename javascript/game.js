@@ -222,15 +222,7 @@ document.getElementById("skip").addEventListener("mouseout", function(){
 });
 
 //Skip button functionality 
-let skipsLeft;
-
-if (savedSkips !== null) {
-    skipsLeft = Number(savedSkips);   // load the saved value
-} else {
-    skipsLeft = 3;                    // default value
-    localStorage.setItem("skipsLeft", skipsLeft);
-}
-skipDisplay.textContent = "Skips left: " + skipsLeft;
+let skipsLeft=3;
 const skipBtn = document.getElementById("skip");
 const skipDisplay= document.getElementById("skipCount");
 skipBtn.addEventListener("click", () => {
@@ -262,6 +254,7 @@ skipBtn.addEventListener("click", () => {
   loadQuestion(index);
   saveGame();
 });
+
 
 
 
